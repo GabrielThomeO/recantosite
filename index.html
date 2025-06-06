@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recanto - Arquitetura Contemporânea</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Compagnon:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Fixo com fundo marrom e linha bege na base -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Header (altura 50px) -->
+                <div class="logo-header">
+                    <div class="placeholder-img logo-header-placeholder">
+                        <span>LOGO HEADER</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <nav class="nav-desktop">
+                    <ul class="nav-menu">
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#sobre">SOBRE</a></li>
+                        <li><a href="#metodo">MÉTODO</a></li>
+                        <li><a href="#projetos">PROJETOS</a></li>
+                        <li><a href="#contato">CONTATO</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Menu Mobile -->
+                <button class="menu-toggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Overlay -->
+        <nav class="nav-mobile">
+            <ul class="nav-mobile-menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#sobre">SOBRE</a></li>
+                <li><a href="#metodo">MÉTODO</a></li>
+                <li><a href="#projetos">PROJETOS</a></li>
+                <li><a href="#contato">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- HOME Section (Fundo Bege) -->
+        <section id="home" class="section section-bege">
+            <div class="container">
+                <div class="home-content">
+                    <!-- Logo Home Central -->
+                    <div class="home-logo">
+                        <div class="placeholder-img home-logo-placeholder">
+                            <span>RECANTO HOME LOGO</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Texto Justificado -->
+                    <div class="home-text">
+                        <p>Acreditamos que a boa arquitetura está acima de estilos ou modismos. Nosso compromisso é criar espaços atemporais, funcionais e que transformam o dia-a-dia das pessoas.</p>
+                    </div>
+
+                    <!-- Botão -->
+                    <div class="home-cta">
+                        <a href="#projetos" class="btn btn-primary">CONHECER PROJETOS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE Section (Fundo Marrom) com espaços para fotos dos sócios -->
+        <section id="sobre" class="section section-marrom">
+            <div class="container">
+                <h2 class="section-title">SOBRE</h2>
+                <div class="sobre-content">
+                    <!-- Fotos dos Sócios (300x400px cada) -->
+                    <div class="socios-fotos">
+                        <div class="socio">
+                            <div class="placeholder-img">
+                                <span>FOTO SÓCIO 1</span>
+                            </div>
+                        </div>
+                        <div class="socio">
+                            <div class="placeholder-img">
+                                <span>FOTO SÓCIO 2</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Texto Justificado ATUALIZADO -->
+                    <div class="sobre-text">
+                        <p>O Recanto foi fundado no intuito de levar arquitetura de qualidade para o dia a dia de cada um. Formados pela UFMG, os arquitetos Gabriel Thomé e Raul Hirsch desejam tornar acessível o sonho de viver em espaços verdadeiramente confortáveis e elegantes, respeitando os anseios de cada cliente.</p>
+                        <p>Seja em reformas, interiores, residências, pousadas e comércios, nós garantimos que nosso método é capaz de aproveitar suas melhores ideias e concretizá-las de maneira efetivamente econômica, usando tecnologia sem deixar de lado a tradição. Vamos conversar sobre seu sonho?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MÉTODO Section (Fundo Bege com cabeçalho marrom) -->
+        <section id="metodo" class="section section-bege">
+            <div class="container">
+                <!-- Cabeçalho em marrom -->
+                <h2 class="section-title-marrom">MÉTODO</h2>
+                <div class="metodo-content">
+                    <!-- Layout vertical: círculos empilhados (200px) com texto ao lado -->
+                    <div class="metodo-grid">
+                        <div class="metodo-item">
+                            <div class="metodo-circle">
+                                <div class="placeholder-img circle-placeholder">
+                                    <span>ESTUDO PRELIMINAR</span>
+                                </div>
+                            </div>
+                            <div class="metodo-text">
+                                <h3 class="metodo-title">01. Estudo Preliminar</h3>
+                                <p class="metodo-description">Usando desenhos, maquetes, referências e muita conversa, essa etapa compila todas as ideias e as organiza para que façam sentido no espaço, além de trazer uma perspectiva técnica a partir de estudos de ventilação, iluminação e das diretrizes urbanas.</p>
+                            </div>
+                        </div>
+
+                        <div class="metodo-item">
+                            <div class="metodo-circle">
+                                <div class="placeholder-img circle-placeholder">
+                                    <span>ANTEPROJETO</span>
+                                </div>
+                            </div>
+                            <div class="metodo-text">
+                                <h3 class="metodo-title">02. Anteprojeto</h3>
+                                <p class="metodo-description">Aqui, as ideias se afunilam e ganham forma mais concreta através de modelos 3d e imagens realistas. O projeto começa a ganhar forma e podem-se ver melhor os pontos positivos e negativos.</p>
+                            </div>
+                        </div>
+
+                        <div class="metodo-item">
+                            <div class="metodo-circle">
+                                <div class="placeholder-img circle-placeholder">
+                                    <span>PROJETO EXECUTIVO</span>
+                                </div>
+                            </div>
+                            <div class="metodo-text">
+                                <h3 class="metodo-title">03. Projeto Executivo</h3>
+                                <p class="metodo-description">O projeto já definido ganha especificações técnicas suficientes para a execução e para aprovação na prefeitura.</p>
+                            </div>
+                        </div>
+
+                        <div class="metodo-item">
+                            <div class="metodo-circle">
+                                <div class="placeholder-img circle-placeholder">
+                                    <span>DETALHAMENTO</span>
+                                </div>
+                            </div>
+                            <div class="metodo-text">
+                                <h3 class="metodo-title">04. Detalhamento</h3>
+                                <p class="metodo-description">A precisão essencial para uma execução com primor de todos os detalhes, desde as marcenarias até as coberturas e janelas, permite, junto com um orçamento da obra, uma visão onírica da execução antes que aconteça de fato.</p>
+                            </div>
+                        </div>
+
+                        <div class="metodo-item">
+                            <div class="metodo-circle">
+                                <div class="placeholder-img circle-placeholder">
+                                    <span>EXECUÇÃO</span>
+                                </div>
+                            </div>
+                            <div class="metodo-text">
+                                <h3 class="metodo-title">05. Execução</h3>
+                                <p class="metodo-description">Selecionando os melhores fornecedores e prestadores de serviços para atender às suas necessidades dentro do orçamento, acompanhamos a obra para garantir uma construção além das expectativas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETOS Section (Fundo Marrom) -->
+        <section id="projetos" class="section section-marrom">
+            <div class="container">
+                <h2 class="section-title">PROJETOS</h2>
+                <div class="projetos-content">
+                    <!-- Grid 2x3 (6 projetos - 2 por linha) -->
+                    <div class="projetos-grid">
+                        <div class="projeto-item" data-projeto="0">
+                            <div class="placeholder-img projeto-placeholder">
+                                <span>PROJETO 1</span>
+                            </div>
+                            <div class="projeto-overlay">
+                                <h3>Loja na Serra do Cipó</h3>
+                                <button class="btn-detalhes">Detalhes</button>
+                            </div>
+                        </div>
+                        <div class="projeto-item" data-projeto="1">
+                            <div class="placeholder-img projeto-placeholder">
+                                <span>PROJETO 2</span>
+                            </div>
+                            <div class="projeto-overlay">
+                                <h3>Residência em Vespasiano</h3>
+                                <button class="btn-detalhes">Detalhes</button>
+                            </div>
+                        </div>
+                        <div class="projeto-item" data-projeto="2">
+                            <div class="placeholder-img projeto-placeholder">
+                                <span>PROJETO 3</span>
+                            </div>
+                            <div class="projeto-overlay">
+                                <h3>Consultório Maria Teresa</h3>
+                                <button class="btn-detalhes">Detalhes</button>
+                            </div>
+                        </div>
+                        <div class="projeto-item" data-projeto="3">
+                            <div class="placeholder-img projeto-placeholder">
+                                <span>PROJETO 4</span>
+                            </div>
+                            <div class="projeto-overlay">
+                                <h3>Padaria Noca Padoca</h3>
+                                <button class="btn-detalhes">Detalhes</button>
+                            </div>
+                        </div>
+                        <div class="projeto-item" data-projeto="4">
+                            <div class="placeholder-img projeto-placeholder">
+                                <span>PROJETO 5</span>
+                            </div>
+                            <div class="projeto-overlay">
+                                <h3>Chalé em São Francisco</h3>
+                                <button class="btn-detalhes">Detalhes</button>
+                            </div>
+                        </div>
+                        <div class="projeto-item" data-projeto="5">
+                            <div class="placeholder-img projeto-placeholder">
+                                <span>PROJETO 6</span>
+                            </div>
+                            <div class="projeto-overlay">
+                                <h3>Pousada Mei do Mato</h3>
+                                <button class="btn-detalhes">Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO Section (Fundo Bege com cabeçalho marrom e títulos em marrom) -->
+        <section id="contato" class="section section-bege">
+            <div class="container">
+                <!-- Cabeçalho em marrom -->
+                <h2 class="section-title-marrom">CONTATO</h2>
+                <div class="contato-content">
+                    <!-- Formulário -->
+                    <div class="contato-form">
+                        <form id="form-contato">
+                            <div class="form-group">
+                                <label for="nome" class="form-label">NOME</label>
+                                <input type="text" id="nome" name="nome" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone" class="form-label">TELEFONE</label>
+                                <input type="tel" id="telefone" name="telefone" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">EMAIL</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mensagem" class="form-label">MENSAGEM</label>
+                                <textarea id="mensagem" name="mensagem" rows="5" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full-width">ENVIAR MENSAGEM</button>
+                        </form>
+                    </div>
+
+                    <!-- Informações de Contato com títulos em marrom -->
+                    <div class="contato-info">
+                        <div class="info-item">
+                            <h3 class="info-label">WHATSAPP</h3>
+                            <p class="info-data"><a href="https://wa.me/5512996462826" target="_blank">(12) 99646-2826</a></p>
+                        </div>
+                        <div class="info-item">
+                            <h3 class="info-label">EMAIL</h3>
+                            <p class="info-data"><a href="mailto:recantomineiroarquitetura@gmail.com">recantomineiroarquitetura@gmail.com</a></p>
+                        </div>
+                        <div class="info-item">
+                            <h3 class="info-label">ENDEREÇO</h3>
+                            <p class="info-data">Av. João Pinheiro, 607</p>
+                        </div>
+                        <div class="info-item">
+                            <h3 class="info-label">INSTAGRAM</h3>
+                            <p class="info-data"><a href="https://instagram.com/recanto_arq" target="_blank">@recanto_arq</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé (Fundo Marrom) -->
+    <footer class="footer section-marrom">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Logo Footer (70px altura) -->
+                <div class="footer-logo">
+                    <div class="placeholder-img">
+                        <span>LOGO FOOTER</span>
+                    </div>
+                </div>
+                
+                <div class="footer-text">
+                    <p>&copy; 2025 Recanto Arquitetura</p>
+                    <p>Entre em contato para transformar seu sonho em realidade</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal dos Projetos -->
+    <div id="modal-projeto" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div class="modal-gallery">
+                <div class="placeholder-img modal-img-placeholder">
+                    <span>FOTO 1</span>
+                </div>
+                <div class="placeholder-img modal-img-placeholder">
+                    <span>FOTO 2</span>
+                </div>
+                <div class="placeholder-img modal-img-placeholder">
+                    <span>FOTO 3</span>
+                </div>
+                <div class="placeholder-img modal-img-placeholder">
+                    <span>FOTO 4</span>
+                </div>
+            </div>
+            <div class="modal-review">
+                <div class="stars">★★★★★</div>
+                <p class="client-name" id="modal-client"></p>
+                <p class="review-text" id="modal-depoimento"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
