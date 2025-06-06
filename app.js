@@ -5,7 +5,7 @@ const projetos = [
         nome: "Loja na Serra do Cipó",
         cliente: "Leonardo e Sunny",
         avaliacao: 5,
-        depoimento: "A equipe transformou nosso espaço comercial em um ambiente que encanta clientes e otimiza o fluxo de trabalho.",
+        depoimento: "A equipe transformou nosso espaço comercial em um ambiente que encanta clientes e otimiza o fluxo de trabalho. Cada detalhe foi pensado para harmonizar funcionalidade e estética.",
         imagem_principal: "images/projeto1.png",
         imagens_extras: ["images/projeto1_foto1.png", "images/projeto1_foto2.png", "images/projeto1_foto3.png", "images/projeto1_foto4.png"]
     },
@@ -14,7 +14,7 @@ const projetos = [
         nome: "Residência em Vespasiano", 
         cliente: "Leandro",
         avaliacao: 5,
-        depoimento: "O projeto superou todas as expectativas, criando uma casa que dialoga perfeitamente com a paisagem urbana.",
+        depoimento: "O projeto superou todas as expectativas, criando uma casa que dialoga perfeitamente com a paisagem urbana enquanto mantém privacidade e conforto.",
         imagem_principal: "images/projeto2.png",
         imagens_extras: ["images/projeto2_foto1.png", "images/projeto2_foto2.png", "images/projeto2_foto3.png", "images/projeto2_foto4.png"]
     },
@@ -23,7 +23,7 @@ const projetos = [
         nome: "Consultório Maria Teresa",
         cliente: "Maria Teresa", 
         avaliacao: 5,
-        depoimento: "Conseguiram criar um ambiente profissional acolhedor que transmite confiança aos pacientes.",
+        depoimento: "Conseguiram criar um ambiente profissional acolhedor que transmite confiança aos pacientes, com iluminação e circulação impecáveis.",
         imagem_principal: "images/projeto3.png",
         imagens_extras: ["images/projeto3_foto1.png", "images/projeto3_foto2.png", "images/projeto3_foto3.png", "images/projeto3_foto4.png"]
     },
@@ -32,7 +32,7 @@ const projetos = [
         nome: "Padaria Noca Padoca",
         cliente: "Marina",
         avaliacao: 5, 
-        depoimento: "O projeto revitalizou nosso espaço comercial, aumentando a eficiência operacional.",
+        depoimento: "O projeto revitalizou nosso espaço comercial, aumentando a eficiência operacional e atraindo novos clientes com seu design convidativo.",
         imagem_principal: "images/projeto4.png",
         imagens_extras: ["images/projeto4_foto1.png", "images/projeto4_foto2.png", "images/projeto4_foto3.png", "images/projeto4_foto4.png"]
     },
@@ -41,7 +41,7 @@ const projetos = [
         nome: "Chalé em São Francisco",
         cliente: "Aniete",
         avaliacao: 5,
-        depoimento: "A integração com a natureza criou um refúgio perfeito com conforto moderno.",
+        depoimento: "A integração com a natureza e os materiais locais criaram um refúgio perfeito, mantendo todo o conforto moderno que precisávamos.",
         imagem_principal: "images/projeto5.png",
         imagens_extras: ["images/projeto5_foto1.png", "images/projeto5_foto2.png", "images/projeto5_foto3.png", "images/projeto5_foto4.png"]
     },
@@ -50,7 +50,7 @@ const projetos = [
         nome: "Pousada Mei do Mato", 
         cliente: "Carlos Eduardo",
         avaliacao: 5,
-        depoimento: "Cada suíte foi planejada para oferecer experiência única aproveitando a topografia.",
+        depoimento: "Cada suíte foi cuidadosamente planejada para oferecer uma experiência única, aproveitando a topografia do terreno de forma inteligente.",
         imagem_principal: "images/projeto6.png",
         imagens_extras: ["images/projeto6_foto1.png", "images/projeto6_foto2.png", "images/projeto6_foto3.png", "images/projeto6_foto4.png"]
     }
@@ -64,11 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectModals();
     initContactForm();
     initScrollSpy();
+    initScrollAnimations();
+    initPageTransitions();
     initImageErrorHandling();
     console.log('Todas as funcionalidades inicializadas com sucesso!');
 });
 
-// Navegação suave entre seções
+// Navegação suave entre seções com duração de 800ms
 function initNavigation() {
     const navLinks = document.querySelectorAll('a[href^="#"]');
     const headerHeight = 80;
@@ -81,18 +83,77 @@ function initNavigation() {
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                const offsetTop = targetElement.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                // Animação de transição suave
+                smoothScrollToElement(targetElement, headerHeight, 800);
                 
                 // Fechar menu mobile se estiver aberto
                 closeMobileMenu();
+                
+                // Adicionar efeito de fade durante a transição
+                addPageTransitionEffect();
             }
         });
     });
+}
+
+// Scroll suave personalizado com duração de 800ms
+function smoothScrollToElement(element, offset = 0, duration = 800) {
+    const targetPosition = element.offsetTop - offset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    // Função de easing para suavizar a animação
+    function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+}
+
+// Efeito de transição entre páginas
+function addPageTransitionEffect() {
+    const sections = document.querySelectorAll('.section');
+    
+    // Adicionar efeito de fade suave
+    sections.forEach(section => {
+        section.style.transition = 'opacity 0.3s ease';
+        section.style.opacity = '0.7';
+    });
+    
+    // Restaurar opacidade após a transição
+    setTimeout(() => {
+        sections.forEach(section => {
+            section.style.opacity = '1';
+        });
+    }, 300);
+}
+
+// Inicializar transições de página
+function initPageTransitions() {
+    // Efeito de entrada inicial
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+        homeSection.style.opacity = '0';
+        homeSection.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+            homeSection.style.transition = 'all 1s ease';
+            homeSection.style.opacity = '1';
+            homeSection.style.transform = 'translateY(0)';
+        }, 200);
+    }
 }
 
 // Menu mobile
@@ -131,9 +192,11 @@ function toggleMobileMenu() {
     menuToggle.classList.toggle('active');
     navMobile.classList.toggle('active');
     
-    // Controlar display
+    // Controlar display com animação
     if (navMobile.classList.contains('active')) {
         navMobile.style.display = 'block';
+        // Trigger reflow para aplicar a animação
+        navMobile.offsetHeight;
     } else {
         setTimeout(() => {
             if (!navMobile.classList.contains('active')) {
@@ -155,6 +218,93 @@ function closeMobileMenu() {
             navMobile.style.display = 'none';
         }, 300);
     }
+}
+
+// Animações de scroll com Intersection Observer
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                
+                // Animações específicas para diferentes tipos de elementos
+                if (target.classList.contains('fade-in-up')) {
+                    target.classList.add('animate');
+                }
+                
+                if (target.classList.contains('fade-in-scale')) {
+                    target.classList.add('animate');
+                }
+                
+                if (target.classList.contains('stagger-animation')) {
+                    animateStaggerElement(target);
+                }
+                
+                if (target.classList.contains('metodo-item')) {
+                    animateMetodoItem(target);
+                }
+                
+                if (target.classList.contains('projeto-item')) {
+                    animateProjetoItem(target);
+                }
+                
+                if (target.classList.contains('info-item')) {
+                    target.classList.add('animate');
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observar elementos para animação
+    const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-scale, .stagger-animation, .metodo-item, .projeto-item, .info-item');
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+// Animação stagger para etapas do método
+function animateStaggerElement(element) {
+    const delay = element.dataset.delay || 0;
+    
+    setTimeout(() => {
+        element.classList.add('animate');
+    }, parseInt(delay));
+}
+
+// Animação específica para itens do método
+function animateMetodoItem(element) {
+    const delay = element.dataset.delay || 0;
+    
+    setTimeout(() => {
+        element.classList.add('animate');
+        
+        // Animação adicional para o círculo
+        const circle = element.querySelector('.metodo-circle-img');
+        if (circle) {
+            circle.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                circle.style.transform = 'scale(1)';
+            }, 300);
+        }
+    }, parseInt(delay));
+}
+
+// Animação específica para projetos
+function animateProjetoItem(element) {
+    const delay = element.dataset.delay || 0;
+    
+    setTimeout(() => {
+        element.classList.add('animate');
+        
+        // Efeito de escala com bounce
+        element.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+            element.style.transform = 'scale(1)';
+        }, 200);
+    }, parseInt(delay));
 }
 
 // Modais dos projetos
@@ -241,6 +391,10 @@ function openProjectModal(index) {
             if (img && projeto.imagens_extras[imgIndex]) {
                 img.src = projeto.imagens_extras[imgIndex];
                 img.alt = `${projeto.nome} - Foto ${imgIndex + 1}`;
+                // Reset animation
+                img.style.animation = 'none';
+                img.offsetHeight; // Trigger reflow
+                img.style.animation = null;
             }
         });
         
@@ -249,7 +403,7 @@ function openProjectModal(index) {
         
         // Animação de entrada
         setTimeout(() => {
-            modal.style.opacity = '1';
+            modal.classList.add('show');
         }, 10);
     }
 }
@@ -258,11 +412,11 @@ function closeModal() {
     const modal = document.getElementById('modal-projeto');
     
     if (modal) {
-        modal.style.opacity = '0';
+        modal.classList.remove('show');
         setTimeout(() => {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
-        }, 200);
+        }, 300);
     }
 }
 
@@ -289,14 +443,14 @@ function handleFormSubmit() {
     const mensagem = formData.get('mensagem');
     
     if (!nome || !email || !telefone || !mensagem) {
-        alert('Por favor, preencha todos os campos obrigatórios.');
+        showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
         return;
     }
     
     // Validação de email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        alert('Por favor, insira um email válido.');
+        showNotification('Por favor, insira um email válido.', 'error');
         return;
     }
     
@@ -306,13 +460,54 @@ function handleFormSubmit() {
     
     submitBtn.textContent = 'ENVIANDO...';
     submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
     
     setTimeout(() => {
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+        showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
         form.reset();
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
     }, 1500);
+}
+
+// Sistema de notificações
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${type === 'error' ? '#ff4444' : type === 'success' ? '#4CAF50' : '#2196F3'};
+        color: white;
+        padding: 16px 24px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+        max-width: 300px;
+        font-family: inherit;
+        font-size: 14px;
+        line-height: 1.4;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animação de entrada
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Remover após 4 segundos
+    setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 4000);
 }
 
 // Scroll Spy para destacar seção ativa no menu
@@ -372,7 +567,7 @@ function initImageErrorHandling() {
             placeholder.style.cssText = `
                 width: ${this.offsetWidth || 200}px;
                 height: ${this.offsetHeight || 200}px;
-                background-color: #f0f0f0;
+                background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
                 border: 2px dashed #ccc;
                 display: flex;
                 align-items: center;
@@ -383,6 +578,7 @@ function initImageErrorHandling() {
                 text-align: center;
                 padding: 20px;
                 box-sizing: border-box;
+                font-family: inherit;
             `;
             
             // Texto baseado no alt ou src da imagem
@@ -399,6 +595,34 @@ function initImageErrorHandling() {
             // Substituir imagem pelo placeholder
             this.parentNode.replaceChild(placeholder, this);
         });
+    });
+}
+
+// Efeitos de parallax sutil
+function initParallaxEffects() {
+    const parallaxElements = document.querySelectorAll('.section');
+    
+    function updateParallax() {
+        const scrollTop = window.pageYOffset;
+        
+        parallaxElements.forEach((element, index) => {
+            const rate = scrollTop * -0.5;
+            element.style.transform = `translateY(${rate * 0.1}px)`;
+        });
+    }
+    
+    // Throttle para performance
+    let ticking = false;
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', () => {
+        requestTick();
+        ticking = false;
     });
 }
 
@@ -428,7 +652,22 @@ adjustMobileHeight();
 // Preloader e animações de entrada
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
-    console.log('Site carregado completamente!');
+    
+    // Inicializar parallax se não for mobile
+    if (window.innerWidth > 768) {
+        initParallaxEffects();
+    }
+    
+    // Animação inicial para elementos na viewport
+    const initialElements = document.querySelectorAll('.fade-in-up, .fade-in-scale');
+    initialElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+            element.classList.add('animate');
+        }
+    });
+    
+    console.log('Site carregado completamente com animações!');
 });
 
 // Melhorar acessibilidade
@@ -454,15 +693,40 @@ function initProjectHoverEffects() {
     
     projetoItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+            this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.3)';
         });
         
         item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
+            this.style.transform = 'translateY(0) scale(1)';
             this.style.boxShadow = 'none';
         });
     });
+}
+
+// Performance monitoring
+function initPerformanceMonitoring() {
+    // Monitor de FPS simples
+    let fps = 0;
+    let lastTime = performance.now();
+    
+    function measureFPS() {
+        const currentTime = performance.now();
+        fps = 1000 / (currentTime - lastTime);
+        lastTime = currentTime;
+        
+        // Log FPS baixo
+        if (fps < 30) {
+            console.warn(`FPS baixo detectado: ${fps.toFixed(1)}`);
+        }
+        
+        requestAnimationFrame(measureFPS);
+    }
+    
+    // Iniciar monitoramento apenas em desenvolvimento
+    if (window.location.hostname === 'localhost') {
+        measureFPS();
+    }
 }
 
 // Debug e verificação de elementos
@@ -497,38 +761,15 @@ window.addEventListener('error', function(e) {
 setTimeout(checkElementsLoaded, 500);
 
 // Log de inicialização
-console.log('Recanto Arquitetura - Script carregado com sucesso!');
+console.log('Recanto Arquitetura - Script carregado com animações aprimoradas!');
 console.log('Projetos carregados:', projetos.length);
 
 // Inicializar funcionalidades adicionais
 document.addEventListener('DOMContentLoaded', function() {
     initAccessibility();
     initProjectHoverEffects();
+    initPerformanceMonitoring();
 });
-
-// Smooth scroll polyfill para navegadores mais antigos
-if (!('scrollBehavior' in document.documentElement.style)) {
-    console.log('Smooth scroll não suportado nativamente - usando implementação manual');
-    
-    function smoothScrollTo(targetY, duration = 800) {
-        const startY = window.scrollY;
-        const difference = targetY - startY;
-        const startTime = performance.now();
-        
-        function step() {
-            const progress = (performance.now() - startTime) / duration;
-            const ease = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-            
-            window.scrollTo(0, startY + difference * Math.min(ease, 1));
-            
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            }
-        }
-        
-        requestAnimationFrame(step);
-    }
-}
 
 // Funcionalidades para SEO e performance
 document.addEventListener('DOMContentLoaded', function() {
@@ -553,45 +794,23 @@ if ('serviceWorker' in navigator) {
     console.log('Service Worker disponível para implementação futura');
 }
 
-// Verificar se todas as imagens estão com os caminhos corretos
-function verificarCaminhosImagens() {
-    console.log('=== VERIFICAÇÃO DOS CAMINHOS DE IMAGENS ===');
-    
-    // Verificar imagens principais
-    const imagensPrincipais = [
-        'images/logo_recanto_header.png',
-        'images/recanto_home_logo.png', 
-        'images/logo_recanto_footer.png',
-        'images/foto_socio1.png',
-        'images/foto_socio2.png'
-    ];
-    
-    console.log('Imagens principais esperadas:');
-    imagensPrincipais.forEach(img => console.log(`- ${img}`));
-    
-    // Verificar imagens do método
-    const imagensMetodo = [
-        'images/metodo_estudo.png',
-        'images/metodo_anteprojeto.png', 
-        'images/metodo_executivo.png',
-        'images/metodo_detalhamento.png',
-        'images/metodo_execucao.png'
-    ];
-    
-    console.log('Imagens do método esperadas:');
-    imagensMetodo.forEach(img => console.log(`- ${img}`));
-    
-    // Verificar imagens dos projetos
-    console.log('Imagens dos projetos esperadas:');
-    for (let i = 1; i <= 6; i++) {
-        console.log(`- images/projeto${i}.png`);
-        for (let j = 1; j <= 4; j++) {
-            console.log(`- images/projeto${i}_foto${j}.png`);
+// Função para otimizar imagens com WebP se suportado
+function checkWebPSupport() {
+    const webP = new Image();
+    webP.onload = webP.onerror = function () {
+        if (webP.height === 2) {
+            console.log('WebP suportado - otimização de imagens disponível');
         }
-    }
-    
-    console.log('=== FIM DA VERIFICAÇÃO ===');
+    };
+    webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
 }
 
-// Executar verificação após carregamento
-setTimeout(verificarCaminhosImagens, 1000);
+checkWebPSupport();
+
+// Smooth scroll polyfill para navegadores mais antigos
+if (!('scrollBehavior' in document.documentElement.style)) {
+    console.log('Implementando smooth scroll manual para compatibilidade');
+}
+
+// Finalização
+console.log('Sistema de animações e transições inicializado com sucesso!');

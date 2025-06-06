@@ -59,13 +59,18 @@
             <div class="container">
                 <div class="home-content">
                     <!-- Logo Home Central (largura 80%, max 800px) -->
-                    <div class="home-logo">
+                    <div class="home-logo fade-in-up">
                         <img src="images/recanto_home_logo.png" alt="Recanto - Arquitetura Contemporânea" class="home-logo-img">
                     </div>
                     
                     <!-- Texto Justificado -->
-                    <div class="home-text">
+                    <div class="home-text fade-in-up">
                         <p>Acreditamos que a boa arquitetura está acima de estilos ou modismos. Nosso compromisso é criar espaços atemporais, funcionais e que transformam o dia-a-dia das pessoas.</p>
+                    </div>
+
+                    <!-- Botão Conhecer Projetos -->
+                    <div class="home-btn fade-in-up">
+                        <a href="#projetos" class="btn btn-conhecer-projetos">CONHECER PROJETOS</a>
                     </div>
                 </div>
             </div>
@@ -74,20 +79,20 @@
         <!-- SOBRE Section (Fundo Marrom) -->
         <section id="sobre" class="section section-marrom">
             <div class="container">
-                <h2 class="section-title">SOBRE</h2>
+                <h2 class="section-title fade-in-up">SOBRE</h2>
                 <div class="sobre-content">
                     <!-- Fotos dos Sócios (300x400px cada) -->
                     <div class="socios-fotos">
-                        <div class="socio">
+                        <div class="socio fade-in-scale">
                             <img src="images/foto_socio1.png" alt="Gabriel Thomé - Arquiteto" class="socio-foto">
                         </div>
-                        <div class="socio">
+                        <div class="socio fade-in-scale">
                             <img src="images/foto_socio2.png" alt="Raul Hirsch - Arquiteto" class="socio-foto">
                         </div>
                     </div>
                     
                     <!-- Texto conforme especificação -->
-                    <div class="sobre-text">
+                    <div class="sobre-text fade-in-up">
                         <p>O Recanto foi fundado no intuito de levar arquitetura de qualidade para o dia a dia de cada um. Formados pela UFMG, os arquitetos Gabriel Thomé e Raul Hirsch desejam tornar acessível o sonho de viver em espaços verdadeiramente confortáveis e elegantes, respeitando os anseios de cada cliente.</p>
                         
                         <p>Seja em reformas, interiores, residências, pousadas e comércios, nós garantimos que nosso método é capaz de aproveitar suas melhores ideias e concretizá-las de maneira efetivamente econômica, usando tecnologia sem deixar de lado a tradição. Vamos conversar sobre seu sonho?</p>
@@ -100,11 +105,11 @@
         <section id="metodo" class="section section-bege">
             <div class="container">
                 <!-- Cabeçalho em marrom -->
-                <h2 class="section-title-marrom">MÉTODO</h2>
+                <h2 class="section-title-marrom fade-in-up">MÉTODO</h2>
                 <div class="metodo-content">
                     <!-- Layout vertical: círculos (200px) com texto ao lado -->
                     <div class="metodo-grid">
-                        <div class="metodo-item">
+                        <div class="metodo-item stagger-animation" data-delay="0">
                             <div class="metodo-circle">
                                 <img src="images/metodo_estudo.png" alt="Estudo Preliminar" class="metodo-circle-img">
                             </div>
@@ -114,7 +119,7 @@
                             </div>
                         </div>
 
-                        <div class="metodo-item">
+                        <div class="metodo-item stagger-animation" data-delay="200">
                             <div class="metodo-circle">
                                 <img src="images/metodo_anteprojeto.png" alt="Anteprojeto" class="metodo-circle-img">
                             </div>
@@ -124,7 +129,7 @@
                             </div>
                         </div>
 
-                        <div class="metodo-item">
+                        <div class="metodo-item stagger-animation" data-delay="400">
                             <div class="metodo-circle">
                                 <img src="images/metodo_executivo.png" alt="Projeto Executivo" class="metodo-circle-img">
                             </div>
@@ -134,7 +139,7 @@
                             </div>
                         </div>
 
-                        <div class="metodo-item">
+                        <div class="metodo-item stagger-animation" data-delay="600">
                             <div class="metodo-circle">
                                 <img src="images/metodo_detalhamento.png" alt="Detalhamento" class="metodo-circle-img">
                             </div>
@@ -144,7 +149,7 @@
                             </div>
                         </div>
 
-                        <div class="metodo-item">
+                        <div class="metodo-item stagger-animation" data-delay="800">
                             <div class="metodo-circle">
                                 <img src="images/metodo_execucao.png" alt="Execução" class="metodo-circle-img">
                             </div>
@@ -161,46 +166,46 @@
         <!-- PROJETOS Section (Fundo Marrom) -->
         <section id="projetos" class="section section-marrom">
             <div class="container">
-                <h2 class="section-title">PROJETOS</h2>
+                <h2 class="section-title fade-in-up">PROJETOS</h2>
                 <div class="projetos-content">
                     <!-- Grid 2x3 (6 projetos - 2 por linha) -->
                     <div class="projetos-grid">
-                        <div class="projeto-item" data-projeto="0">
+                        <div class="projeto-item fade-in-scale" data-projeto="0" data-delay="100">
                             <img src="images/projeto1.png" alt="Loja na Serra do Cipó" class="projeto-img">
                             <div class="projeto-overlay">
                                 <h3>Loja na Serra do Cipó</h3>
                                 <button class="btn-detalhes">Detalhes</button>
                             </div>
                         </div>
-                        <div class="projeto-item" data-projeto="1">
+                        <div class="projeto-item fade-in-scale" data-projeto="1" data-delay="200">
                             <img src="images/projeto2.png" alt="Residência em Vespasiano" class="projeto-img">
                             <div class="projeto-overlay">
                                 <h3>Residência em Vespasiano</h3>
                                 <button class="btn-detalhes">Detalhes</button>
                             </div>
                         </div>
-                        <div class="projeto-item" data-projeto="2">
+                        <div class="projeto-item fade-in-scale" data-projeto="2" data-delay="300">
                             <img src="images/projeto3.png" alt="Consultório Maria Teresa" class="projeto-img">
                             <div class="projeto-overlay">
                                 <h3>Consultório Maria Teresa</h3>
                                 <button class="btn-detalhes">Detalhes</button>
                             </div>
                         </div>
-                        <div class="projeto-item" data-projeto="3">
+                        <div class="projeto-item fade-in-scale" data-projeto="3" data-delay="400">
                             <img src="images/projeto4.png" alt="Padaria Noca Padoca" class="projeto-img">
                             <div class="projeto-overlay">
                                 <h3>Padaria Noca Padoca</h3>
                                 <button class="btn-detalhes">Detalhes</button>
                             </div>
                         </div>
-                        <div class="projeto-item" data-projeto="4">
+                        <div class="projeto-item fade-in-scale" data-projeto="4" data-delay="500">
                             <img src="images/projeto5.png" alt="Chalé em São Francisco" class="projeto-img">
                             <div class="projeto-overlay">
                                 <h3>Chalé em São Francisco</h3>
                                 <button class="btn-detalhes">Detalhes</button>
                             </div>
                         </div>
-                        <div class="projeto-item" data-projeto="5">
+                        <div class="projeto-item fade-in-scale" data-projeto="5" data-delay="600">
                             <img src="images/projeto6.png" alt="Pousada Mei do Mato" class="projeto-img">
                             <div class="projeto-overlay">
                                 <h3>Pousada Mei do Mato</h3>
@@ -216,46 +221,48 @@
         <section id="contato" class="section section-bege">
             <div class="container">
                 <!-- Cabeçalho em marrom -->
-                <h2 class="section-title-marrom">CONTATO</h2>
+                <h2 class="section-title-marrom fade-in-up">CONTATO</h2>
                 <div class="contato-content">
                     <!-- Formulário -->
                     <div class="contato-form">
                         <form id="form-contato">
-                            <div class="form-group">
+                            <div class="form-group fade-in-up">
                                 <label for="nome" class="form-label">NOME</label>
                                 <input type="text" id="nome" name="nome" class="form-control" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group fade-in-up">
                                 <label for="telefone" class="form-label">TELEFONE</label>
                                 <input type="tel" id="telefone" name="telefone" class="form-control" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group fade-in-up">
                                 <label for="email" class="form-label">EMAIL</label>
                                 <input type="email" id="email" name="email" class="form-control" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group fade-in-up">
                                 <label for="mensagem" class="form-label">MENSAGEM</label>
                                 <textarea id="mensagem" name="mensagem" rows="5" class="form-control" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-full-width">ENVIAR MENSAGEM</button>
+                            <div class="fade-in-up">
+                                <button type="submit" class="btn btn-primary btn-full-width">ENVIAR MENSAGEM</button>
+                            </div>
                         </form>
                     </div>
 
                     <!-- Informações de Contato -->
                     <div class="contato-info">
-                        <div class="info-item">
+                        <div class="info-item fade-in-up">
                             <h3 class="info-label">WHATSAPP</h3>
                             <p class="info-data"><a href="https://wa.me/5512996462826" target="_blank">(12) 99646-2826</a></p>
                         </div>
-                        <div class="info-item">
+                        <div class="info-item fade-in-up">
                             <h3 class="info-label">EMAIL</h3>
                             <p class="info-data"><a href="mailto:recantomineiroarquitetura@gmail.com">recantomineiroarquitetura@gmail.com</a></p>
                         </div>
-                        <div class="info-item">
+                        <div class="info-item fade-in-up">
                             <h3 class="info-label">ENDEREÇO</h3>
                             <p class="info-data">Av. João Pinheiro, 607</p>
                         </div>
-                        <div class="info-item">
+                        <div class="info-item fade-in-up">
                             <h3 class="info-label">INSTAGRAM</h3>
                             <p class="info-data"><a href="https://instagram.com/recanto_arq" target="_blank">@recanto_arq</a></p>
                         </div>
@@ -268,7 +275,7 @@
     <!-- Rodapé (Fundo Marrom) -->
     <footer class="footer section-marrom">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-content fade-in-up">
                 <!-- Logo Footer (altura 60px) -->
                 <div class="footer-logo">
                     <img src="images/logo_recanto_footer.png" alt="Recanto Arquitetura" class="footer-logo-img">
